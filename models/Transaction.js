@@ -1,28 +1,28 @@
 const mongoose = require("mongoose");
 
-const UserSchema = new mongoose.Schema(
+const Transaction = new mongoose.Schema(
   {
-    phoneUid: {
+    _id: {
       type: String,
       required: true,
     },
-    walletAddress: {
+    userId: {
       type: String,
       required: true,
     },
-    phoneNumber: {
-      type: String,
-      required: true,
-    },
-    email: {
-      type: String,
-      required: true,
-    },
-    id: {
+    amount: {
       type: Number,
       required: true,
     },
-    idType: {
+    status: {
+      type: String,
+      required: true,
+    },
+    type: {
+      type: String,
+      required: true,
+    },
+    feeAmount: {
       type: String,
       required: true,
     },
@@ -32,4 +32,4 @@ const UserSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("users", UserSchema);
+module.exports = mongoose.model("transactions", Transaction);

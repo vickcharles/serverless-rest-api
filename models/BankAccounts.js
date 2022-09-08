@@ -1,28 +1,24 @@
 const mongoose = require("mongoose");
 
-const UserSchema = new mongoose.Schema(
+const BankAccountSchema = new mongoose.Schema(
   {
-    phoneUid: {
+    currency: {
       type: String,
       required: true,
     },
-    walletAddress: {
+    accountType: {
       type: String,
       required: true,
     },
-    phoneNumber: {
-      type: String,
-      required: true,
-    },
-    email: {
-      type: String,
-      required: true,
-    },
-    id: {
+    accountNumber: {
       type: Number,
       required: true,
     },
-    idType: {
+    userId: {
+      type: String,
+      required: true,
+    },
+    bankName: {
       type: String,
       required: true,
     },
@@ -32,4 +28,4 @@ const UserSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("users", UserSchema);
+module.exports = mongoose.model("bankAccounts", BankAccountSchema);

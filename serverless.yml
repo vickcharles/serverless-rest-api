@@ -9,41 +9,28 @@ provider:
   region: us-east-1
 
 functions: 
-  create:
-    handler: handler.create # point to exported create function in handler.js
+  createUser:
+    handler: handler.createUser # point to exported create function in handler.js
     events:
       - http:
-          path: users 
+          path: users
           method: post
           cors: true
-  getOne:
-    handler: handler.getOne
+  createTransaction:
+    handler: handler.createTransaction # point to exported create function in handler.js
     events:
       - http:
-          path: users/{id} 
+          path: transactions
+          method: post
+          cors: true
+  getAllTransaction:
+    handler: handler.getAllTransaction # point to exported create function in handler.js
+    events:
+      - http:
+          path: transactions
           method: get
           cors: true
-  getAll:
-    handler: handler.getAll 
-    events:
-     - http:
-         path: users
-         method: get
-         cors: true
-  update:
-    handler: handler.update 
-    events:
-     - http:
-         path: users/{id}
-         method: put
-         cors: true
-  delete:
-    handler: handler.delete
-    events:
-     - http:
-         path: users/{id} 
-         method: delete
-         cors: true
+
 
 plugins:
 - serverless-offline # adding the plugin to be able to run the offline emulation
